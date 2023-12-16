@@ -50,7 +50,7 @@ class User extends Authenticatable
         return $this->hasOne(Profile::class);//hace lo mismo con lo de arriba
     }
 
-    //un usuario tiene varios post UNO A MUCHOS
+    //UNO A MUCHOS
     public function posts(){//plural porque es muchos
         return $this->hasMany(Post::class);
 
@@ -68,5 +68,8 @@ class User extends Authenticatable
     //uno a uno polimorfica
     public function image(){
         return $this->morphOne(Image::class,'imageable');
+    }
+    public function comments(){
+        return $this->hasMany(Comment::class);
     }
 }
