@@ -49,4 +49,14 @@ class User extends Authenticatable
         //$profile = Profile::where('user_id'),$this->id->first();
         return $this->hasOne(Profile::class);//hace lo mismo con lo de arriba
     }
+
+    //un usuario tiene varios post UNO A MUCHOS
+    public function posts(){//plural porque es muchos
+        return $this->hasMany(Post::class);
+
+    }
+    public function videos(){//plural porque es muchos
+        return $this->hasMany(Video::class);
+
+    }
 }
