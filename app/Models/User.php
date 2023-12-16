@@ -64,4 +64,9 @@ class User extends Authenticatable
     public function roles(){
         return $this->belongsToMany(Role::class);
     }
+
+    //uno a uno polimorfica
+    public function image(){
+        return $this->morphOne(Image::class,'imageable');
+    }
 }
