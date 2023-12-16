@@ -42,4 +42,11 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    //uno a uno con la tabla profiles
+    //convencion en singular porque tiene un solo perfil
+    public function profile(){
+        //$profile = Profile::where('user_id'),$this->id->first();
+        return $this->hasOne(Profile::class);//hace lo mismo con lo de arriba
+    }
 }
